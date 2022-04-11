@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct ContentView: View {
-    var pokemonModel = PokemonModel()
+    var pokemonModel = PokemonViewModel()
     @State private var pokemon = [Pokemon] ()
     var body: some View {
         NavigationView {

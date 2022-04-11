@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ContentView: View {
     var pokemonModel = PokemonModel()
@@ -18,13 +19,28 @@ struct ContentView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text(poke.name.capitalized)
                             .font(.title)
-                        Text(poke.type.capitalized)
-                            .italic()
+                        HStack {
+                            Text(poke.type.capitalized)
+                                .italic()
+                            Circle()
+                                .foregroundColor(poke.typeColor)
+                                .frame(width: 10, height: 10)
+                            
+                        }
                         Text(poke.description)
                             .font(.caption)
                             .lineLimit(2)
                     }
-                    AsyncImage(url: URL(string: poke.imageURL)) { phase in
+                    
+                    Spacer()
+                    
+                    KFImage(URL(string: poke.imageURL))
+                        .interpolation(.none)
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                    
+                    // MARK: metodo assíncrono
+                    /*AsyncImage(url: URL(string: poke.imageURL)) { phase in
                         switch phase {
                         case .empty:
                             ProgressView()
@@ -38,14 +54,15 @@ struct ContentView: View {
                         @unknown default:
                             EmptyView()
                         }
-                    }
+                    }*/
                 }
             }
             .navigationTitle("Pokemon")
         }
         
         .onAppear {
-            async {
+            //async
+            Task.init {
                 pokemon = try! await pokemonModel.getPokemon()
             }
         }

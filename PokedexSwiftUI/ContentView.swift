@@ -33,7 +33,7 @@ struct ContentView: View {
                     }
                     
                     Spacer()
-                    
+                    // MARK: Kingfisher é lindo
                     KFImage(URL(string: poke.imageURL))
                         .interpolation(.none)
                         .resizable()

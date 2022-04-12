@@ -1,5 +1,5 @@
 //
-//  Pokemonimage.swift
+//  PokemonImage.swift
 //  PokedexSwiftUI
 //
 //  Created by user216592 on 4/11/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Kingfisher
 
-struct Pokemonimage: View {
+struct PokemonImage: View {
     var image: KFImage
     
     var body: some View {
@@ -19,13 +19,13 @@ struct Pokemonimage: View {
             .clipShape(Circle())
             .overlay(Circle().stroke(Color.white, lineWidth: 5))
             .background(Circle().foregroundColor(.white))
-            .shadow(radius: 5)
+            .shadow(radius: 8)
         
     }
 }
 
-struct Pokemonimage_Previews: PreviewProvider {
+struct PokemonImage_Previews: PreviewProvider {
     static var previews: some View {
-        Pokemonimage(image: KFImage(URL(string: PokemonViewModel().MOCK_POKEMON.imageURL)))
+        PokemonImage(image: KFImage(URL(string: PokemonViewModel().MOCK_POKEMON.imageURL)))
     }
 }

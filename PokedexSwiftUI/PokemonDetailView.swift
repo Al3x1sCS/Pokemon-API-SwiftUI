@@ -44,7 +44,15 @@ struct PokemonDetailView: View {
                             .padding()
                         
                         StatsViewGroup(pokemon: pokemon)
-                        
+                    }
+                    .offset(y: -40)
+                    .scaleEffect(scale)
+                    .onAppear() {
+                        let baseAnimation = Animation.spring(dampingFraction: 0.5)
+                        let repeated = baseAnimation.repeatCount(1)
+                        withAnimation(repeated) {
+                            scale = 1
+                        }
                     }
                 }
             }

@@ -19,7 +19,7 @@ struct PokemonImage: View {
             .clipShape(Circle())
             .overlay(Circle().stroke(Color.white, lineWidth: 5))
             .background(Circle().foregroundColor(.white))
-            .shadow(radius: 8)
+            .shadow(radius: 5)
         
     }
 }
